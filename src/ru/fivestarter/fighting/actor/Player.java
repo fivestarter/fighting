@@ -17,11 +17,21 @@ public class Player implements Actor{
     public static final int HEIGHT = 140;
     public static final int WEIGHT = 90;
 
+    private static final int SOURCE_X1 = 0;
+    private static final int SOURCE_Y1 = 20;
+    private static final int SOURCE_WEIGHT = 51;
+    private static final int SOURCE_HEIGHT = 83;
+
+
     Image img = new ImageIcon("res/guile.png").getImage();
     private Rectangle rectangle;
+    private Rectangle sourceRect;
+    private int speed;
 
-    public Player() {
+    public Player(int speed) {
+        this.speed = speed;
         rectangle = new Rectangle(INIT_X, INIT_Y, WEIGHT, HEIGHT);
+        sourceRect = new Rectangle(SOURCE_X1, SOURCE_Y1, SOURCE_WEIGHT, SOURCE_HEIGHT);
     }
 
     @Override
@@ -36,7 +46,9 @@ public class Player implements Actor{
 
     @Override
     public void paint(Graphics2D graphics2D) {
-        graphics2D.drawImage(img, rectangle.x, rectangle.y, rectangle.x + rectangle.width, rectangle.y + rectangle.height, 0, 20, 51, 103, null);
+        graphics2D.drawImage(img, rectangle.x, rectangle.y,
+                rectangle.x + rectangle.width, rectangle.y + rectangle.height,
+                sourceRect.x, sourceRect.y, sourceRect.x + sourceRect.width, sourceRect.y + sourceRect.height, null);
     }
 
     public void keyPressed(KeyEvent e) {

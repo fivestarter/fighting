@@ -23,19 +23,20 @@ import ru.fivestarter.fighting.actor.Player;
 public class Level extends JPanel implements ActionListener{
     public static final int WEIGHT = 1200;
     public static final int HEIGHT = 700;
-    private static final int PERIOD = 20;
+    public static final int SECOND = 1000;
+    private static final int SPEED = 25;
     private static final int MAX_TOP = 330;
     private static final int MAX_BOTTOM = HEIGHT;
     private static final int MAX_LEFT = 0;
     private static final int MAX_RIGHT = WEIGHT;
 
-    Timer mainTimer = new Timer(PERIOD, this);
+    Timer mainTimer = new Timer(SECOND/SPEED, this);
 
     Image img = new ImageIcon("res/station.png").getImage();
     List<Actor> actors = new ArrayList<>();
 
     public Level() {
-        Player player = new Player();
+        Player player = new Player(SPEED);
         actors.add(player);
         mainTimer.start();
         addKeyListener(new PlayerKeyAdapter(player));

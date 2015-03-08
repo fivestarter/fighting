@@ -5,7 +5,6 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 /**
  * @author yuriy on 08.03.15.
@@ -13,6 +12,7 @@ import javax.swing.JOptionPane;
 public class Player implements Actor{
     public static final int INIT_X = 30;
     public static final int INIT_Y = 350;
+    public static final int SPEED = 3;
 
     Image img = new ImageIcon("res/spl.png").getImage();
     private int x = INIT_X;
@@ -30,11 +30,21 @@ public class Player implements Actor{
     }
 
     public void keyPressed(KeyEvent e) {
-        JOptionPane.showMessageDialog(null, "key pressed");
+        int key = e.getKeyCode();
+        if (key == KeyEvent.VK_W) {
+            y -= SPEED;
+        }
+        if (key == KeyEvent.VK_S) {
+            y += SPEED;
+        }
+        if (key == KeyEvent.VK_A) {
+            x -= SPEED;
+        }
+        if (key == KeyEvent.VK_D) {
+            x += SPEED;
+        }
     }
 
     public void keyReleased(KeyEvent e) {
-        JOptionPane.showMessageDialog(null, "key released");
-
     }
 }

@@ -1,5 +1,6 @@
 package ru.fivestarter.fighting.actor;
 
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
@@ -15,12 +16,10 @@ public class Player implements Actor{
     public static final int SPEED = 3;
 
     Image img = new ImageIcon("res/spl.png").getImage();
-    private int x = INIT_X;
-    private int y = INIT_Y;
     private Rectangle rectangle;
 
     public Player() {
-        rectangle = new Rectangle(0, 0, img.getWidth(null), img.getHeight(null));
+        rectangle = new Rectangle(INIT_X, INIT_Y, img.getWidth(null), img.getHeight(null));
     }
 
     @Override
@@ -29,48 +28,28 @@ public class Player implements Actor{
     }
 
     @Override
-    public int getX() {
-        return x;
-    }
-
-    @Override
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    @Override
-    public int getY() {
-        return y;
-    }
-
-    @Override
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    @Override
     public Rectangle getRect() {
         return rectangle;
     }
 
     @Override
-    public Image getImage() {
-        return img;
+    public void paint(Graphics2D graphics2D) {
+        graphics2D.drawImage(img, rectangle.x, rectangle.y, null);
     }
 
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_W) {
-            y -= SPEED;
+            rectangle.y -= SPEED;
         }
         if (key == KeyEvent.VK_S) {
-            y += SPEED;
+            rectangle.y += SPEED;
         }
         if (key == KeyEvent.VK_A) {
-            x -= SPEED;
+            rectangle.x -= SPEED;
         }
         if (key == KeyEvent.VK_D) {
-            x += SPEED;
+            rectangle.x += SPEED;
         }
     }
 

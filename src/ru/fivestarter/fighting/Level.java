@@ -48,7 +48,7 @@ public class Level extends JPanel implements ActionListener{
         graphics2D.drawImage(img, 0, 0, WEIGHT, HEIGHT, null);
 
         for (Actor actor : actors) {
-            graphics2D.drawImage(actor.getImage(), actor.getX(), actor.getY(), null);
+            actor.paint(graphics2D);
         }
     }
 
@@ -62,17 +62,17 @@ public class Level extends JPanel implements ActionListener{
     }
 
     public void fixCoordinates(Actor actor) {
-        if (actor.getX() + actor.getRect().width > MAX_RIGHT) {
-            actor.setX(MAX_RIGHT - actor.getRect().width);
+        if (actor.getRect().x + actor.getRect().width > MAX_RIGHT) {
+            actor.getRect().x = MAX_RIGHT - actor.getRect().width;
         }
-        if (actor.getX() < MAX_LEFT) {
-            actor.setX(MAX_LEFT);
+        if (actor.getRect().x < MAX_LEFT) {
+            actor.getRect().x = MAX_LEFT;
         }
-        if (actor.getY() + actor.getRect().height > MAX_BOTTOM) {
-            actor.setY(MAX_BOTTOM - actor.getRect().height);
+        if (actor.getRect().y + actor.getRect().height > MAX_BOTTOM) {
+            actor.getRect().y = MAX_BOTTOM - actor.getRect().height;
         }
-        if (actor.getY() < MAX_TOP) {
-            actor.setY(MAX_TOP);
+        if (actor.getRect().y < MAX_TOP) {
+            actor.getRect().y = MAX_TOP;
         }
 
     }

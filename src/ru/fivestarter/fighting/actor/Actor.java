@@ -1,5 +1,6 @@
 package ru.fivestarter.fighting.actor;
 
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 
@@ -8,11 +9,7 @@ import java.awt.Rectangle;
  */
 public interface Actor {
     void action();
-    int getX();
-    void setX(int x);
-    int getY();
-    void setY(int y);
     Rectangle getRect();
-    Image getImage();
+    void paint(Graphics2D graphics2D);
 
 }

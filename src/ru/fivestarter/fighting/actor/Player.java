@@ -17,7 +17,7 @@ public class Player implements Actor{
     public static final int HEIGHT = 140;
     public static final int WEIGHT = 90;
 
-    Image img = new ImageIcon("res/spl.png").getImage();
+    Image img = new ImageIcon("res/guile.png").getImage();
     private Rectangle rectangle;
 
     public Player() {
@@ -36,7 +36,7 @@ public class Player implements Actor{
 
     @Override
     public void paint(Graphics2D graphics2D) {
-        graphics2D.drawImage(img, rectangle.x, rectangle.y, rectangle.width, rectangle.height, null);
+        graphics2D.drawImage(img, rectangle.x, rectangle.y, rectangle.x + rectangle.width, rectangle.y + rectangle.height, 0, 20, 51, 103, null);
     }
 
     public void keyPressed(KeyEvent e) {

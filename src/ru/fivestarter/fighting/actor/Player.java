@@ -1,6 +1,7 @@
 package ru.fivestarter.fighting.actor;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
@@ -16,6 +17,11 @@ public class Player implements Actor{
     Image img = new ImageIcon("res/spl.png").getImage();
     private int x = INIT_X;
     private int y = INIT_Y;
+    private Rectangle rectangle;
+
+    public Player() {
+        rectangle = new Rectangle(0, 0, img.getWidth(null), img.getHeight(null));
+    }
 
     @Override
     public void action() {
@@ -28,8 +34,23 @@ public class Player implements Actor{
     }
 
     @Override
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    @Override
     public int getY() {
         return y;
+    }
+
+    @Override
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    @Override
+    public Rectangle getRect() {
+        return rectangle;
     }
 
     @Override

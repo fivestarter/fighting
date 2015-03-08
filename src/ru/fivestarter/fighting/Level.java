@@ -24,6 +24,10 @@ public class Level extends JPanel implements ActionListener{
     public static final int WEIGHT = 1200;
     public static final int HEIGHT = 700;
     private static final int PERIOD = 20;
+    private static final int MAX_TOP = 200;
+    private static final int MAX_BOTTOM = HEIGHT;
+    private static final int MAX_LEFT = 0;
+    private static final int MAX_RIGHT = WEIGHT;
 
     Timer mainTimer = new Timer(PERIOD, this);
 
@@ -51,9 +55,26 @@ public class Level extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         for (Actor actor : actors) {
+            fixCoordinates(actor);
             actor.action();
         }
         repaint();
+    }
+
+    public void fixCoordinates(Actor actor) {
+        if (actor.getX() + actor.getRect().width > MAX_RIGHT) {
+            actor.setX(MAX_RIGHT - actor.getRect().width);
+        }
+        if (actor.getX() < MAX_LEFT) {
+            actor.setX(MAX_LEFT);
+        }
+        if (actor.getY() + actor.getRect().height > MAX_BOTTOM) {
+            actor.setY(MAX_BOTTOM - actor.getRect().height);
+        }
+        if (actor.getY() < MAX_TOP) {
+            actor.setY(MAX_TOP);
+        }
+
     }
 
     private class PlayerKeyAdapter extends KeyAdapter {

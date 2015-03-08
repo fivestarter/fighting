@@ -1,5 +1,6 @@
 package ru.fivestarter.fighting.actor;
 
+import java.awt.Graphics2D;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -16,7 +17,8 @@ public class Player implements Actor{
     private int y = INIT_Y;
 
     @Override
-    public void paint() {
+    public void paint(Graphics2D graphics2D) {
+        graphics2D.drawImage(img, x, y, null);
 
     }
 

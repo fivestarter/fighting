@@ -1,8 +1,5 @@
 package ru.fivestarter.fighting;
 
-import ru.fivestarter.fighting.actor.Actor;
-import ru.fivestarter.fighting.actor.Player;
-
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -11,6 +8,9 @@ import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
+import ru.fivestarter.fighting.actor.Actor;
+import ru.fivestarter.fighting.actor.Player;
 
 /**
  * @author yuriy on 08.03.15.

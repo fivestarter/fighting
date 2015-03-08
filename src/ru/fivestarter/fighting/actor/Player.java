@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
 public class Player implements Actor{
     public static final int INIT_X = 30;
     public static final int INIT_Y = 450;
-    public static final int SPEED = 3;
+    public static final int SPEED = 5;
     public static final int HEIGHT = 140;
     public static final int WEIGHT = 90;
 

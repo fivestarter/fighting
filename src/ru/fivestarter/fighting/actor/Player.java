@@ -1,6 +1,5 @@
 package ru.fivestarter.fighting.actor;
 
-import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 
@@ -19,14 +18,23 @@ public class Player implements Actor{
     private int y = INIT_Y;
 
     @Override
-    public void paint(Graphics2D graphics2D) {
-        graphics2D.drawImage(img, x, y, null);
+    public void action() {
 
     }
 
     @Override
-    public void action() {
+    public int getX() {
+        return x;
+    }
 
+    @Override
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public Image getImage() {
+        return img;
     }
 
     public void keyPressed(KeyEvent e) {

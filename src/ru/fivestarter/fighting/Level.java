@@ -44,7 +44,7 @@ public class Level extends JPanel implements ActionListener{
         graphics2D.drawImage(img, 0, 0, WEIGHT, HEIGHT, null);
 
         for (Actor actor : actors) {
-            actor.paint(graphics2D);
+            graphics2D.drawImage(actor.getImage(), actor.getX(), actor.getY(), null);
         }
     }
 

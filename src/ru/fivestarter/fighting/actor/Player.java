@@ -2,8 +2,10 @@ package ru.fivestarter.fighting.actor;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  * @author yuriy on 08.03.15.
@@ -24,6 +26,15 @@ public class Player implements Actor{
 
     @Override
     public void action() {
+
+    }
+
+    public void keyPressed(KeyEvent e) {
+        JOptionPane.showMessageDialog(null, "key pressed");
+    }
+
+    public void keyReleased(KeyEvent e) {
+        JOptionPane.showMessageDialog(null, "key released");
 
     }
 }

@@ -16,17 +16,17 @@ public class Stand implements CoordinateManager {
     private static final int FREQ = 3;
 
     private Coordinates coordinates = new Coordinates(X1, Y1, X2, Y2);
-    private int speed;
+    private int framePerSecond;
     private int count = 0;
     private int frame = 0;
 
-    public Stand(int speed) {
-        this.speed = speed;
+    public Stand(int framePerSecond) {
+        this.framePerSecond = framePerSecond;
     }
 
     @Override
     public Coordinates getCoordinates() {
-        if (count >= speed / FREQ) {
+        if (count >= framePerSecond / FREQ) {
             frame++;
             if (frame > FRAMES) {
                 coordinates.setX1(X1);

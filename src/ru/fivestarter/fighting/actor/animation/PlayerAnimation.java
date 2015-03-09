@@ -22,11 +22,11 @@ public class PlayerAnimation {
     private CoordinateManager walkBackward;
 
 
-    public PlayerAnimation(int speed, String path) {
+    public PlayerAnimation(int framePerSecond, String path) {
         img = new ImageIcon(path).getImage();
-        stand = new Stand(speed);
-        walkForward = new WalkForward(speed);
-        walkBackward = new WalkBackward(speed);
+        stand = new Stand(framePerSecond);
+        walkForward = new WalkForward(framePerSecond);
+        walkBackward = new WalkBackward(framePerSecond);
         coordinateManager = stand;
     }
 

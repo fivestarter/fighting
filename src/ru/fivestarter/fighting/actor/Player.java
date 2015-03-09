@@ -19,9 +19,9 @@ public class Player implements Actor{
     private Rectangle rectangle;
     private PlayerAnimation animation;
 
-    public Player(int speed) {
+    public Player(int framePerSecond) {
         rectangle = new Rectangle(INIT_X, INIT_Y, WEIGHT, HEIGHT);
-        animation = new PlayerAnimation(speed, "res/guile.png");
+        animation = new PlayerAnimation(framePerSecond, "res/guile.png");
     }
 
     @Override
@@ -46,9 +46,11 @@ public class Player implements Actor{
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_W) {
             rectangle.y -= SPEED;
+            animation.goRight();
         }
         if (key == KeyEvent.VK_S) {
             rectangle.y += SPEED;
+            animation.goBack();
         }
         if (key == KeyEvent.VK_A) {
             rectangle.x -= SPEED;
@@ -62,7 +64,7 @@ public class Player implements Actor{
 
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
-        if (key == KeyEvent.VK_D || key == KeyEvent.VK_A) {
+        if (key == KeyEvent.VK_D || key == KeyEvent.VK_A || key == KeyEvent.VK_S || key == KeyEvent.VK_W) {
             animation.stay();
         }
     }

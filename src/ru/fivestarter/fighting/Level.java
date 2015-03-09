@@ -24,19 +24,19 @@ public class Level extends JPanel implements ActionListener{
     public static final int WEIGHT = 1200;
     public static final int HEIGHT = 700;
     public static final int SECOND = 1000;
-    private static final int SPEED = 25;
+    private static final int FRAME_PER_SECOND = 25;
     private static final int MAX_TOP = 330;
     private static final int MAX_BOTTOM = HEIGHT;
     private static final int MAX_LEFT = 0;
     private static final int MAX_RIGHT = WEIGHT;
 
-    Timer mainTimer = new Timer(SECOND / SPEED, this);
+    Timer mainTimer = new Timer(SECOND / FRAME_PER_SECOND, this);
 
     Image img = new ImageIcon("res/station.png").getImage();
     List<Actor> actors = new ArrayList<>();
 
     public Level() {
-        Player player = new Player(SPEED);
+        Player player = new Player(FRAME_PER_SECOND);
         actors.add(player);
         mainTimer.start();
         addKeyListener(new PlayerKeyAdapter(player));

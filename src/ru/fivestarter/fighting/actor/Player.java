@@ -52,6 +52,7 @@ public class Player implements Actor{
         }
         if (key == KeyEvent.VK_A) {
             rectangle.x -= SPEED;
+            animation.goBack();
         }
         if (key == KeyEvent.VK_D) {
             rectangle.x += SPEED;
@@ -61,7 +62,7 @@ public class Player implements Actor{
 
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
-        if (key == KeyEvent.VK_D) {
+        if (key == KeyEvent.VK_D || key == KeyEvent.VK_A) {
             animation.stay();
         }
     }

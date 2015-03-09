@@ -5,7 +5,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 import ru.fivestarter.fighting.actor.Coordinates;
-import ru.fivestarter.fighting.actor.animation.impl.StandingManager;
+import ru.fivestarter.fighting.actor.animation.impl.Stand;
 import ru.fivestarter.fighting.actor.animation.impl.WalkForward;
 
 /**
@@ -16,15 +16,15 @@ public class PlayerAnimation {
     private Image img;
 
     private CoordinateManager coordinateManager;
-    private CoordinateManager standingManager;
+    private CoordinateManager stand;
     private CoordinateManager walkForward;
 
 
     public PlayerAnimation(int speed, String path) {
         img = new ImageIcon(path).getImage();
-        standingManager = new StandingManager(speed);
+        stand = new Stand(speed);
         walkForward = new WalkForward(speed);
-        coordinateManager = standingManager;
+        coordinateManager = stand;
     }
 
     public Image getImg() {
@@ -36,7 +36,7 @@ public class PlayerAnimation {
     }
 
     public void stay() {
-        coordinateManager = standingManager;
+        coordinateManager = stand;
     }
 
     public void goRight() {

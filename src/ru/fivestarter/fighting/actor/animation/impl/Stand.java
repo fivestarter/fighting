@@ -6,7 +6,7 @@ import ru.fivestarter.fighting.actor.animation.CoordinateManager;
 /**
  * @author yuriy on 09.03.15.
  */
-public class StandingManager implements CoordinateManager {
+public class Stand implements CoordinateManager {
     private static final int X1 = 0;
     private static final int Y1 = 20;
     private static final int X2 = 53;
@@ -20,7 +20,7 @@ public class StandingManager implements CoordinateManager {
     private int count = 0;
     private int frame = 0;
 
-    public StandingManager(int speed) {
+    public Stand(int speed) {
         this.speed = speed;
     }
 

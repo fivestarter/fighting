@@ -1,4 +1,4 @@
-package ru.fivestarter.fighting.actor.player;
+package ru.fivestarter.fighting.actor.animation;
 
 import java.awt.Image;
 

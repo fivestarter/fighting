@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
-import ru.fivestarter.fighting.actor.player.PlayerAnimation;
+import ru.fivestarter.fighting.actor.animation.PlayerAnimation;
 
 /**
  * @author yuriy on 08.03.15.

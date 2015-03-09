@@ -1,11 +1,10 @@
 package ru.fivestarter.fighting.actor;
 
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
+import ru.fivestarter.fighting.actor.player.PlayerAnimation;
 
 /**
  * @author yuriy on 08.03.15.
@@ -17,21 +16,12 @@ public class Player implements Actor{
     public static final int HEIGHT = 140;
     public static final int WEIGHT = 90;
 
-    private static final int SOURCE_X1 = 0;
-    private static final int SOURCE_Y1 = 20;
-    private static final int SOURCE_WEIGHT = 51;
-    private static final int SOURCE_HEIGHT = 83;
-
-
-    Image img = new ImageIcon("res/guile.png").getImage();
     private Rectangle rectangle;
-    private Rectangle sourceRect;
-    private int speed;
+    private PlayerAnimation animation;
 
     public Player(int speed) {
-        this.speed = speed;
         rectangle = new Rectangle(INIT_X, INIT_Y, WEIGHT, HEIGHT);
-        sourceRect = new Rectangle(SOURCE_X1, SOURCE_Y1, SOURCE_WEIGHT, SOURCE_HEIGHT);
+        animation = new PlayerAnimation(speed, "res/guile.png");
     }
 
     @Override
@@ -46,9 +36,10 @@ public class Player implements Actor{
 
     @Override
     public void paint(Graphics2D graphics2D) {
-        graphics2D.drawImage(img, rectangle.x, rectangle.y,
+        Coordinates coordinates = animation.getCoordinates();
+        graphics2D.drawImage(animation.getImg(), rectangle.x, rectangle.y,
                 rectangle.x + rectangle.width, rectangle.y + rectangle.height,
-                sourceRect.x, sourceRect.y, sourceRect.x + sourceRect.width, sourceRect.y + sourceRect.height, null);
+                coordinates.getX1(), coordinates.getY1(), coordinates.getX2(), coordinates.getY2(), null);
     }
 
     public void keyPressed(KeyEvent e) {

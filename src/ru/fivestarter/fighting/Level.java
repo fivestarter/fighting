@@ -30,7 +30,7 @@ public class Level extends JPanel implements ActionListener{
     private static final int MAX_LEFT = 0;
     private static final int MAX_RIGHT = WEIGHT;
 
-    Timer mainTimer = new Timer(SECOND/SPEED, this);
+    Timer mainTimer = new Timer(SECOND / SPEED, this);
 
     Image img = new ImageIcon("res/station.png").getImage();
     List<Actor> actors = new ArrayList<>();

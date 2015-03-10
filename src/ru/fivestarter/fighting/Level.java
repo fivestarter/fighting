@@ -63,17 +63,17 @@ public class Level extends JPanel implements ActionListener{
     }
 
     public void fixCoordinates(Actor actor) {
-        if (actor.getRect().x + actor.getRect().width > MAX_RIGHT) {
-            actor.getRect().x = MAX_RIGHT - actor.getRect().width;
+        if (actor.getCoordinates().getX2() > MAX_RIGHT) {
+            actor.getCoordinates().setX1(MAX_RIGHT - actor.getCoordinates().getWith());
         }
-        if (actor.getRect().x < MAX_LEFT) {
-            actor.getRect().x = MAX_LEFT;
+        if (actor.getCoordinates().getX1() < MAX_LEFT) {
+            actor.getCoordinates().setX1(MAX_LEFT);
         }
-        if (actor.getRect().y + actor.getRect().height > MAX_BOTTOM) {
-            actor.getRect().y = MAX_BOTTOM - actor.getRect().height;
+        if (actor.getCoordinates().getY2() > MAX_BOTTOM) {
+            actor.getCoordinates().setY1(MAX_BOTTOM - actor.getCoordinates().getHeight());
         }
-        if (actor.getRect().y < MAX_TOP) {
-            actor.getRect().y = MAX_TOP;
+        if (actor.getCoordinates().getY1() < MAX_TOP) {
+            actor.getCoordinates().setY1(MAX_TOP);
         }
 
     }

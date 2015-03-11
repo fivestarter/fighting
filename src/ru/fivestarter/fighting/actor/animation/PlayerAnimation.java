@@ -54,7 +54,7 @@ public class PlayerAnimation {
         }
     }
 
-    public void goRight() {
+    public void walk() {
         if (coordinateManager != walkForward) {
             coordinateManager = walkForward;
             coordinateManager.init();

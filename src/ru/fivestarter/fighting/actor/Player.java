@@ -45,22 +45,16 @@ public class Player implements Actor{
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_W) {
-            coordinates.setY1(coordinates.getY1() - SPEED);
-            animation.goRight();
+            up();
         }
         if (key == KeyEvent.VK_S) {
-            coordinates.setY1(coordinates.getY1() + SPEED);
-            animation.goRight();
+            down();
         }
         if (key == KeyEvent.VK_A) {
-            coordinates.setX1(coordinates.getX1() - SPEED);
-            animation.turnLeft();
-            animation.goRight();
+            left();
         }
         if (key == KeyEvent.VK_D) {
-            coordinates.setX1(coordinates.getX1() + SPEED);
-            animation.turnRight();
-            animation.goRight();
+            right();
         }
     }
 
@@ -69,5 +63,27 @@ public class Player implements Actor{
         if (key == KeyEvent.VK_D || key == KeyEvent.VK_A || key == KeyEvent.VK_S || key == KeyEvent.VK_W) {
             animation.stay();
         }
+    }
+
+    private void up() {
+        coordinates.setY1(coordinates.getY1() - SPEED);
+        animation.walk();
+    }
+
+    private void down() {
+        coordinates.setY1(coordinates.getY1() + SPEED);
+        animation.walk();
+    }
+
+    private void right() {
+        coordinates.setX1(coordinates.getX1() + SPEED);
+        animation.turnRight();
+        animation.walk();
+    }
+
+    private void left() {
+        coordinates.setX1(coordinates.getX1() - SPEED);
+        animation.turnLeft();
+        animation.walk();
     }
 }

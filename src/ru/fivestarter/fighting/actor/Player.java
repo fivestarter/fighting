@@ -1,7 +1,6 @@
 package ru.fivestarter.fighting.actor;
 
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
 import ru.fivestarter.fighting.actor.animation.PlayerAnimation;

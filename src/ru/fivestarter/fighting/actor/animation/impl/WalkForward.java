@@ -16,13 +16,14 @@ public class WalkForward implements CoordinateManager {
     private static final int FRAMES = 2;
     private static final int FREQ = 3;
 
-    private Coordinates coordinates = new Coordinates(X1, Y1, WIDTH, HEIGHT);
+    private Coordinates coordinates;
     private int framePerSecond;
     private int count = 0;
     private int frame = 0;
 
     public WalkForward(int framePerSecond) {
         this.framePerSecond = framePerSecond;
+        init();
     }
 
     @Override
@@ -40,4 +41,12 @@ public class WalkForward implements CoordinateManager {
         count++;
         return coordinates;
     }
+
+    @Override
+    public void init() {
+        count = 0;
+        frame = 0;
+        coordinates = new Coordinates(X1, Y1, WIDTH, HEIGHT);
+    }
+
 }

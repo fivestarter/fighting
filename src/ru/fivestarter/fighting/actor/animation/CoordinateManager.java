@@ -7,4 +7,5 @@ import ru.fivestarter.fighting.actor.Coordinates;
  */
 public interface CoordinateManager {
     Coordinates getCoordinates();
+    void init();
 }

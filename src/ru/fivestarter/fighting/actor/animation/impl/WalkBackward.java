@@ -9,20 +9,21 @@ import ru.fivestarter.fighting.actor.animation.CoordinateManager;
 public class WalkBackward implements CoordinateManager {
     private static final int X1 = 379;
     private static final int Y1 = 20;
-    private static final int WEIGHT = 56;
+    private static final int WIDTH = 56;
     private static final int HEIGHT = 83;
 
     private static final int STEP = 56;
     private static final int FRAMES = 2;
     private static final int FREQ = 3;
 
-    private Coordinates coordinates = new Coordinates(X1, Y1, WEIGHT, HEIGHT);
+    private Coordinates coordinates;
     private int framePerSecond;
     private int count = 0;
     private int frame = 0;
 
     public WalkBackward(int framePerSecond) {
         this.framePerSecond = framePerSecond;
+        init();
     }
 
     @Override
@@ -39,6 +40,13 @@ public class WalkBackward implements CoordinateManager {
         }
         count++;
         return coordinates;
+    }
+
+    @Override
+    public void init() {
+        count = 0;
+        frame = 0;
+        coordinates = new Coordinates(X1, Y1, WIDTH, HEIGHT);
     }
 
 }

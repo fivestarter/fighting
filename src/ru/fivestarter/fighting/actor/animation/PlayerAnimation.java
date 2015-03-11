@@ -39,14 +39,24 @@ public class PlayerAnimation {
     }
 
     public void stay() {
-        coordinateManager = stand;
+        if (coordinateManager != stand) {
+            coordinateManager = stand;
+            coordinateManager.init();
+        }
     }
 
     public void goRight() {
-        coordinateManager = walkForward;
+        if (coordinateManager != walkForward) {
+            coordinateManager = walkForward;
+            coordinateManager.init();
+        }
+
     }
 
     public void goBack() {
-        coordinateManager = walkBackward;
+        if (coordinateManager != walkBackward) {
+            coordinateManager = walkBackward;
+            coordinateManager.init();
+        }
     }
 }

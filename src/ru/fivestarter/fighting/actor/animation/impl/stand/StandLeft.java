@@ -1,4 +1,4 @@
-package ru.fivestarter.fighting.actor.animation.impl;
+package ru.fivestarter.fighting.actor.animation.impl.stand;
 
 /**
  * @author yuriy on 11.03.15.

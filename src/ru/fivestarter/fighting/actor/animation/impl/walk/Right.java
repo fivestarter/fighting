@@ -1,13 +1,13 @@
-package ru.fivestarter.fighting.actor.animation.impl;
+package ru.fivestarter.fighting.actor.animation.impl.walk;
 
 /**
  * @author yuriy on 11.03.15.
  */
-public class Left extends WalkForward {
-    private static final int X1 = 214;
-    private static final int WIDTH = -53;
+public class Right extends WalkForward {
+    private static final int X1 = 161;
+    private static final int WIDTH = 53;
 
-    public Left(int framePerSecond) {
+    public Right(int framePerSecond) {
         super(framePerSecond);
     }
 

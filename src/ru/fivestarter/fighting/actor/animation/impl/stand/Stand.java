@@ -1,4 +1,4 @@
-package ru.fivestarter.fighting.actor.animation.impl;
+package ru.fivestarter.fighting.actor.animation.impl.stand;
 
 import ru.fivestarter.fighting.actor.Coordinates;
 import ru.fivestarter.fighting.actor.animation.CoordinateManager;
@@ -6,10 +6,9 @@ import ru.fivestarter.fighting.actor.animation.CoordinateManager;
 /**
  * @author yuriy on 09.03.15.
  */
-public abstract class WalkForward implements CoordinateManager {
+public abstract class Stand implements CoordinateManager {
     private static final int Y1 = 20;
     private static final int HEIGHT = 83;
-
     private static final int STEP = 53;
     private static final int FRAMES = 2;
     private static final int FREQ = 3;
@@ -19,7 +18,7 @@ public abstract class WalkForward implements CoordinateManager {
     private int count = 0;
     private int frame = 0;
 
-    public WalkForward(int framePerSecond) {
+    public Stand(int framePerSecond) {
         this.framePerSecond = framePerSecond;
         init();
     }

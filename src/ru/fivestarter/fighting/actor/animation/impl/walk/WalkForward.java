@@ -1,4 +1,4 @@
-package ru.fivestarter.fighting.actor.animation.impl;
+package ru.fivestarter.fighting.actor.animation.impl.walk;
 
 import ru.fivestarter.fighting.actor.Coordinates;
 import ru.fivestarter.fighting.actor.animation.CoordinateManager;
@@ -6,13 +6,11 @@ import ru.fivestarter.fighting.actor.animation.CoordinateManager;
 /**
  * @author yuriy on 09.03.15.
  */
-public class WalkBackward implements CoordinateManager {
-    private static final int X1 = 379;
+public abstract class WalkForward implements CoordinateManager {
     private static final int Y1 = 20;
-    private static final int WIDTH = 56;
     private static final int HEIGHT = 83;
 
-    private static final int STEP = 56;
+    private static final int STEP = 53;
     private static final int FRAMES = 2;
     private static final int FREQ = 3;
 
@@ -21,7 +19,7 @@ public class WalkBackward implements CoordinateManager {
     private int count = 0;
     private int frame = 0;
 
-    public WalkBackward(int framePerSecond) {
+    public WalkForward(int framePerSecond) {
         this.framePerSecond = framePerSecond;
         init();
     }
@@ -31,10 +29,10 @@ public class WalkBackward implements CoordinateManager {
         if (count >= framePerSecond / FREQ) {
             frame++;
             if (frame > FRAMES) {
-                coordinates.setX1(X1);
+                coordinates.setX1(getInitX());
                 frame = 0;
             } else {
-                coordinates.setX1(coordinates.getX1() - STEP);
+                coordinates.setX1(coordinates.getX1() + STEP);
             }
             count = 0;
         }
@@ -46,7 +44,9 @@ public class WalkBackward implements CoordinateManager {
     public void init() {
         count = 0;
         frame = 0;
-        coordinates = new Coordinates(X1, Y1, WIDTH, HEIGHT);
+        coordinates = new Coordinates(getInitX(), Y1, getInitWidth(), HEIGHT);
     }
 
+    public abstract int getInitX();
+    public abstract int getInitWidth();
 }

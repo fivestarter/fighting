@@ -5,9 +5,11 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 import ru.fivestarter.fighting.actor.Coordinates;
+import ru.fivestarter.fighting.actor.animation.impl.Left;
+import ru.fivestarter.fighting.actor.animation.impl.Right;
 import ru.fivestarter.fighting.actor.animation.impl.Stand;
-import ru.fivestarter.fighting.actor.animation.impl.WalkBackward;
-import ru.fivestarter.fighting.actor.animation.impl.WalkForward;
+import ru.fivestarter.fighting.actor.animation.impl.StandLeft;
+import ru.fivestarter.fighting.actor.animation.impl.StandRight;
 
 /**
  * @author yuriy on 09.03.15.
@@ -17,16 +19,23 @@ public class PlayerAnimation {
     private Image img;
 
     private CoordinateManager coordinateManager;
-    private CoordinateManager stand;
+    private Stand stand;
     private CoordinateManager walkForward;
-    private CoordinateManager walkBackward;
 
+    private StandLeft standLeft;
+    private StandRight standRight;
+    private Left left;
+    private Right right;
 
     public PlayerAnimation(int framePerSecond, String path) {
         img = new ImageIcon(path).getImage();
-        stand = new Stand(framePerSecond);
-        walkForward = new WalkForward(framePerSecond);
-        walkBackward = new WalkBackward(framePerSecond);
+        standLeft = new StandLeft(framePerSecond);
+        standRight = new StandRight(framePerSecond);
+        stand = standRight;
+
+        left = new Left(framePerSecond);
+        right = new Right(framePerSecond);
+        walkForward = right;
         coordinateManager = stand;
     }
 
@@ -53,10 +62,13 @@ public class PlayerAnimation {
 
     }
 
-    public void goBack() {
-        if (coordinateManager != walkBackward) {
-            coordinateManager = walkBackward;
-            coordinateManager.init();
-        }
+    public void turnRight() {
+        stand = standRight;
+        walkForward = right;
+    }
+
+    public void turnLeft() {
+        stand = standLeft;
+        walkForward = left;
     }
 }

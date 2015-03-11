@@ -50,14 +50,16 @@ public class Player implements Actor{
         }
         if (key == KeyEvent.VK_S) {
             coordinates.setY1(coordinates.getY1() + SPEED);
-            animation.goBack();
+            animation.goRight();
         }
         if (key == KeyEvent.VK_A) {
             coordinates.setX1(coordinates.getX1() - SPEED);
-            animation.goBack();
+            animation.turnLeft();
+            animation.goRight();
         }
         if (key == KeyEvent.VK_D) {
             coordinates.setX1(coordinates.getX1() + SPEED);
+            animation.turnRight();
             animation.goRight();
         }
     }

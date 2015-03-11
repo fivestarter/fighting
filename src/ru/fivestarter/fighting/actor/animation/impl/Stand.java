@@ -6,10 +6,8 @@ import ru.fivestarter.fighting.actor.animation.CoordinateManager;
 /**
  * @author yuriy on 09.03.15.
  */
-public class Stand implements CoordinateManager {
-    private static final int X1 = 0;
+public abstract class Stand implements CoordinateManager {
     private static final int Y1 = 20;
-    private static final int WIDTH = 53;
     private static final int HEIGHT = 83;
     private static final int STEP = 53;
     private static final int FRAMES = 2;
@@ -30,7 +28,7 @@ public class Stand implements CoordinateManager {
         if (count >= framePerSecond / FREQ) {
             frame++;
             if (frame > FRAMES) {
-                coordinates.setX1(X1);
+                coordinates.setX1(getInitX());
                 frame = 0;
             } else {
                 coordinates.setX1(coordinates.getX1() + STEP);
@@ -45,6 +43,9 @@ public class Stand implements CoordinateManager {
     public void init() {
         count = 0;
         frame = 0;
-        coordinates = new Coordinates(X1, Y1, WIDTH, HEIGHT);
+        coordinates = new Coordinates(getInitX(), Y1, getInitWidth(), HEIGHT);
     }
+
+    public abstract int getInitX();
+    public abstract int getInitWidth();
 }

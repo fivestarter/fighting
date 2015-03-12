@@ -11,7 +11,7 @@ public abstract class Stand implements CoordinateManager {
     private static final int HEIGHT = 83;
     private static final int STEP = 53;
     private static final int FRAMES = 2;
-    private static final int FREQ = 3;
+    private static final int FREQ = 4;
 
     private Coordinates coordinates;
     private int framePerSecond;

@@ -10,8 +10,8 @@ public abstract class WalkForward implements CoordinateManager {
     private static final int Y1 = 20;
     private static final int HEIGHT = 83;
 
-    private static final int STEP = 53;
-    private static final int FRAMES = 2;
+    private static final int STEP = 55;
+    private static final int FRAMES = 4;
     private static final int FREQ = 3;
 
     private Coordinates coordinates;

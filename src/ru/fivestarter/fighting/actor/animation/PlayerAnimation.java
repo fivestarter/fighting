@@ -5,11 +5,11 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 import ru.fivestarter.fighting.actor.Coordinates;
-import ru.fivestarter.fighting.actor.animation.impl.walk.Left;
-import ru.fivestarter.fighting.actor.animation.impl.walk.Right;
 import ru.fivestarter.fighting.actor.animation.impl.stand.Stand;
 import ru.fivestarter.fighting.actor.animation.impl.stand.StandLeft;
 import ru.fivestarter.fighting.actor.animation.impl.stand.StandRight;
+import ru.fivestarter.fighting.actor.animation.impl.walk.Left;
+import ru.fivestarter.fighting.actor.animation.impl.walk.Right;
 
 /**
  * @author yuriy on 09.03.15.

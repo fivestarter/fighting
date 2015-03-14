@@ -15,6 +15,7 @@ public class Player implements Actor{
     public static final int HEIGHT = 140;
     public static final int WEIGHT = 90;
 
+    private int diagonalSpeed = (int) Math.sqrt(Math.pow(SPEED, 2)/2);
     private Coordinates coordinates;
     private PlayerAnimation animation;
 
@@ -42,47 +43,56 @@ public class Player implements Actor{
                 sourceCoordinates.getX2(), sourceCoordinates.getY2(), null);
     }
 
-    public void keyPressed(KeyEvent e) {
-        int key = e.getKeyCode();
-        if (key == KeyEvent.VK_W) {
-            up();
-        }
-        if (key == KeyEvent.VK_S) {
-            down();
-        }
-        if (key == KeyEvent.VK_A) {
-            left();
-        }
-        if (key == KeyEvent.VK_D) {
-            right();
-        }
-    }
-
-    public void keyReleased(KeyEvent e) {
-        int key = e.getKeyCode();
-        if (key == KeyEvent.VK_D || key == KeyEvent.VK_A || key == KeyEvent.VK_S || key == KeyEvent.VK_W) {
-            animation.stay();
-        }
-    }
-
-    private void up() {
+    public void up() {
         coordinates.setY1(coordinates.getY1() - SPEED);
         animation.walk();
     }
 
-    private void down() {
+    public void down() {
         coordinates.setY1(coordinates.getY1() + SPEED);
         animation.walk();
     }
 
-    private void right() {
+    public void right() {
         coordinates.setX1(coordinates.getX1() + SPEED);
         animation.turnRight();
         animation.walk();
     }
 
-    private void left() {
+    public void left() {
         coordinates.setX1(coordinates.getX1() - SPEED);
+        animation.turnLeft();
+        animation.walk();
+    }
+
+    public void stay() {
+        animation.stay();
+    }
+
+    public void upRight() {
+        coordinates.setY1(coordinates.getY1() - diagonalSpeed);
+        coordinates.setX1(coordinates.getX1() + diagonalSpeed);
+        animation.turnRight();
+        animation.walk();
+    }
+
+    public void downRight() {
+        coordinates.setY1(coordinates.getY1() + diagonalSpeed);
+        coordinates.setX1(coordinates.getX1() + diagonalSpeed);
+        animation.turnRight();
+        animation.walk();
+    }
+
+    public void upLeft() {
+        coordinates.setY1(coordinates.getY1() - diagonalSpeed);
+        coordinates.setX1(coordinates.getX1() - diagonalSpeed);
+        animation.turnLeft();
+        animation.walk();
+    }
+
+    public void downLeft() {
+        coordinates.setY1(coordinates.getY1() + diagonalSpeed);
+        coordinates.setX1(coordinates.getX1() - diagonalSpeed);
         animation.turnLeft();
         animation.walk();
     }

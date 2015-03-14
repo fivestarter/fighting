@@ -16,6 +16,8 @@ import javax.swing.Timer;
 
 import ru.fivestarter.fighting.actor.Actor;
 import ru.fivestarter.fighting.actor.Player;
+import ru.fivestarter.fighting.controller.ControllerHandler;
+import ru.fivestarter.fighting.controller.KeyBoardHandler;
 
 /**
  * @author yuriy on 08.03.15.
@@ -34,12 +36,14 @@ public class Level extends JPanel implements ActionListener{
 
     Image img = new ImageIcon("res/station.png").getImage();
     List<Actor> actors = new ArrayList<>();
+    private ControllerHandler controller;
 
     public Level() {
         Player player = new Player(FRAME_PER_SECOND);
+        controller = new KeyBoardHandler(player);
         actors.add(player);
         mainTimer.start();
-        addKeyListener(new PlayerKeyAdapter(player));
+        addKeyListener(new PlayerKeyAdapter());
         setFocusable(true);
     }
 
@@ -55,6 +59,7 @@ public class Level extends JPanel implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        controller.handle();
         for (Actor actor : actors) {
             fixCoordinates(actor);
             actor.action();
@@ -79,20 +84,15 @@ public class Level extends JPanel implements ActionListener{
     }
 
     private class PlayerKeyAdapter extends KeyAdapter {
-        private Player player;
-
-        public PlayerKeyAdapter(Player player) {
-            this.player = player;
-        }
 
         @Override
         public void keyPressed(KeyEvent e) {
-            player.keyPressed(e);
+            controller.keyPressed(e);
         }
 
         @Override
         public void keyReleased(KeyEvent e) {
-            player.keyReleased(e);
+            controller.keyReleased(e);
         }
     }
 }

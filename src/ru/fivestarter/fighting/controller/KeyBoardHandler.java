@@ -33,33 +33,42 @@ public class KeyBoardHandler implements ControllerHandler {
     public void handle() {
         if (hasUp() && !hasRight() && !hasDown() && !hasLeft()) {
             player.up();
+            return;
         }
         if (hasRight() && !hasUp() && !hasDown() && !hasLeft()) {
             player.right();
+            return;
         }
         if (hasDown() && !hasUp() && !hasRight() && !hasLeft()) {
             player.down();
+            return;
         }
         if (hasLeft() && !hasUp() && !hasDown() && !hasRight()) {
             player.left();
+            return;
         }
         if ((!hasLeft() && !hasUp() && !hasDown() && !hasRight()) || hasUp() && hasDown() || hasLeft() && hasRight()) {
             player.stay();
+            return;
         }
         if (hasUp() && hasRight()) {
             player.upRight();
+            return;
         }
 
         if (hasDown() && hasRight()) {
             player.downRight();
+            return;
         }
 
         if (hasUp() && hasLeft()) {
             player.upLeft();
+            return;
         }
 
         if (hasDown() && hasLeft()) {
             player.downLeft();
+            return;
         }
     }
 

@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 
 import ru.fivestarter.fighting.actor.animation.PlayerAnimation;
 
-/**
+/** 3333
  * @author yuriy on 08.03.15.
  */
 public class Player implements Actor{
